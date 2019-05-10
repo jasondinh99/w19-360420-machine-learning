@@ -12,15 +12,24 @@ public class kNNMain{
     // the desired file. Choose a given DataPoint, and print its features and label
 	
 	List<DataPoint> datalist = DataSet.readDataSet("data/iris.csv");
-	double[][] xArray = new double[datalist.size()][5];
+	double[][] xArray = new double[datalist.size()][datalist.size()];
 	
-	for(int i = 0; i < datalist.size(); i++){
-		DataPoint dp = datalist.get(i);
-		xArray[i] = dp.getX();
-		String printX = Arrays.toString(xArray[i]);
-		System.out.println(printX);
+	//for(int i = 0; i < datalist.size(); i++){
+		DataPoint dp = datalist.get(1);
+		xArray[1] = dp.getX();
+		String printX = Arrays.toString(xArray[1]);
+		System.out.print(printX + "\t");
+		System.out.println(dp.getLabel());
+	//}
+	
+	/*
+	for(int i = 0; i < xArray.length; i++){
+		for(int j = 0; j < xArray[i].length; j++){
+			System.out.print(xArray[i][j]+"\t");
+		}
+		System.out.println();
 	}
-	
+	*/
 
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
