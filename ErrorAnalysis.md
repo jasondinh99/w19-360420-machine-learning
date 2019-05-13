@@ -1,6 +1,6 @@
 # Title
-## Course - Section 002
-## Authors
+## 360-420-  - Section 002
+## Jason Dinh
 
 ## Distributions of Model Accuracy
 
