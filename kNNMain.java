@@ -55,20 +55,32 @@ public class kNNMain{
     // point based on nearest neighbors in training set. Calculate accuracy of model.
 	double good = 0.;
 	double numTest = testSet.size();
+	double[] accuracy = new double[1000];
+	double average =0.;
+	double stanDev = 0.;
 	
-	for(int i = 0; i < testSet.size(); i++){
-		DataPoint comparePoint = testSet.get(i);
-		String predict = classify.predict(trainSet, comparePoint);
-		
-		if(comparePoint.getLabel().equals(predict)){
-			good++;
+	for(int j = 0; j < 1000; j++){
+		for(int i = 0; i < testSet.size(); i++){
+			DataPoint comparePoint = testSet.get(i);
+			String predict = classify.predict(trainSet, comparePoint);
+			
+			if(comparePoint.getLabel().equals(predict)){
+				good++;
+			}
+			
 		}
 		
+		accuracy[j] = good/numTest * 100;
+		good = 0.;
 	}
+	System.out.println(mean(accuracy));
+	System.out.println(standardDeviation(accuracy));
 
-	double accuracy = good/numTest * 100;
-	System.out.println("Accuracy: " + accuracy);
-
+		
+	
+	
+		
+	
   }
 
   public static double mean(double[] arr){
